@@ -21,11 +21,12 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private byte storeId;
 
-    @OneToOne
+    // КРИТИЧЕСКОЕ ИЗМЕНЕНИЕ: Добавлен LAZY fetch
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_staff_id", nullable = false)
     private Staff manager;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 

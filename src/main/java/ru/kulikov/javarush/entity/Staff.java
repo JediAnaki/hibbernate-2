@@ -27,18 +27,17 @@ public class Staff {
     @Column(name = "last_name", length = 45, nullable = false)
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 
-    @Lob
-    @Column(name = "picture", columnDefinition = "BLOB")
+    @Transient
     private byte[] picture;
 
     @Column(name = "email", length = 50)
     private String email;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", nullable = false)
     private Store store;
 
@@ -48,7 +47,7 @@ public class Staff {
     @Column(name = "username", length = 16, nullable = false)
     private String username;
 
-    @Column(name = "password", length = 40, nullable = false)
+    @Column(name = "password", length = 40)
     private String password;
 
     @Column(name = "last_update", nullable = false)
