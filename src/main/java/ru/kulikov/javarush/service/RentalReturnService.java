@@ -20,7 +20,7 @@ public class RentalReturnService {
             if (returnRentalById.getReturnDate() == null) {
                 returnRentalById.setReturnDate(LocalDateTime.now());
             }
-            System.out.println("Film by rent ID " + rentalId + " successfully returned to " + returnRentalById.getReturnDate());
+            System.out.println("Фильм с ID = " + rentalId + " успешно возвращен " + returnRentalById.getReturnDate());
             session.getTransaction().commit();
         }
     }
